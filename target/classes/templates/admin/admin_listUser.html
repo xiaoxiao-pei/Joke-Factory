@@ -1,0 +1,40 @@
+<div th:replace="admin/admin_header :: header"></div>
+
+<div class="container text-center">
+
+	<div class = "my-3">
+		<h1>List of Users</h1>
+	</div>
+	<div>
+		<table class="table table-striped table-hover table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>User ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>RegisterDate</th>
+					<th>Credit</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user: ${listUsers}">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${#dates.format(user.joinDate, 'yyyy-MM-dd')}"></td>
+					<td th:text="${user.Credit}"></td>
+					<td><a th:href="@{'/admin/editUser/' + ${user.id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp; <a th:href="@{'/admin/deleteUser/' + ${user.id}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		
+
+
+</div>
+
+<footer class="container text-center text-white px-0 fixed-bottom" style="background-color:#f5902c;">
+<div th:replace="footer :: footer"></div>

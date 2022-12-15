@@ -1,0 +1,61 @@
+<div th:replace="user/user_header :: header"></div>
+
+<div class="container my-5">
+
+	<div class = "row text-center " style="color:#f5902c;">
+		<h2 class="col-6 offset-3 ">Edit User Account</h2>
+	
+		<form class="col-6 offset-3" th:action="@{/user/saveUser}" th:object="${user}" method="post">
+		
+			<div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">ID:</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control form-control-lg" id="colFormLabel"  th:field="*{id}" readonly="readonly"/>
+			    </div>
+			  </div>
+			  
+			 <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">Name:</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control form-control-lg" id="colFormLabel"  th:field="*{name}" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('name')}" th:text="${err}"
+						class="error" />
+				</ul>
+			  </div>
+			  
+			  <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">Email:</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control form-control-lg" id="colFormLabel"  th:field="*{email}" readonly="readonly" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('Email')}" th:text="${err}"
+						class="error" />
+				</ul>
+			  </div>
+			  
+			  <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">Password:</label>
+			    <div class="col-sm-10">
+			      <input type="password" class="form-control form-control-lg" id="colFormLabel"  th:field="*{passwordUnHashed}" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('passwordUnHashed')}" th:text="${err}"
+						class="error" />
+				</ul>
+			  </div>
+			  
+			  <div class = "my-3">
+			  	<input type="submit" class="btn text-light mb-5"  style="background-color:#F88C00;" value="Save" />
+			  </div>
+			  
+		</form>
+	</div>
+
+
+</div>
+
+	<footer class="container text-center text-white px-0 fixed-bottom" style="background-color:#f5902c;">
+<div th:replace="footer :: footer"></div>

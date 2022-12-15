@@ -1,0 +1,85 @@
+<div th:replace="admin/admin_header :: header"></div>
+
+<div class="container my-5">
+
+	<div class = "row text-center" style="color:#FF4E00;">
+		<h2 class="col-6 offset-3">Edit Admin Account</h2>
+	
+		<form class="col-6 offset-3" th:action="@{/admin/saveAdmin}" th:object="${admin}" method="post" >
+		
+			<div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg" >AdminID:</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control form-control-lg ml-2" id="colFormLabel"  th:field="*{id_admin}" readonly="readonly"/>
+			    </div>
+			  </div>
+			  
+			 <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">FirstName:</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control form-control-lg ml-2" id="colFormLabel"  th:field="*{firstname}" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('firstname')}" th:text="${err}"
+						class="error" />
+				</ul>
+			  </div>
+			  
+			  <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">LastName:</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control form-control-lg ml-2" id="colFormLabel"  th:field="*{lastname}" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('lastname')}" th:text="${err}"
+						class="error" />
+				</ul>
+			  </div>
+			  
+			  <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">Email:</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control form-control-lg ml-2" id="colFormLabel"  th:field="*{email}" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('email')}" th:text="${err}"
+						class="error" />
+				</ul>
+			    
+			  </div>
+			  
+			  <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">Password:</label>
+			    <div class="col-sm-10">
+			      <input type="password" class="form-control form-control-lg ml-2" id="colFormLabel"  th:field="*{passwordUnHashed}" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('passwordUnHashed')}" th:text="${err}"
+						class="error" />
+				</ul>
+			  </div>
+			  
+			  <div class="form-group row">
+			    <label for="colFormLabel" class="col-sm-2 col-form-label  col-form-label-lg">Retype Password:</label>
+			    <div class="col-sm-10">
+			      <input type="password" class="form-control form-control-lg ml-2" id="colFormLabel"  th:field="*{rePassword}" />
+			    </div>
+			    <ul class="offset-4 col-8">
+					<li th:each="err : ${#fields.errors('rePassword')}" th:text="${err}"
+						class="error" />
+				</ul>
+			  </div>
+			  
+			  <div >
+			  	<input type="submit" class="btn text-light mb-5"  style="background-color:#F88C00;" value="SAVE" />
+			  </div>
+			  
+		</form>
+	</div>
+
+
+</div>
+
+	<footer class="container text-center text-white px-0 fixed-bottom" style="background-color:#f5902c;">
+
+<div th:replace="footer :: footer"></div>

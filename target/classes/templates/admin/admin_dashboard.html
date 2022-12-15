@@ -1,0 +1,28 @@
+<div th:replace="admin/admin_header :: header"></div>
+
+<div class="container text-center">
+
+	<h2 class="mt-3">
+		Welcome <b th:text="${adminname}"></b>!!
+	</h2>
+	
+	<div class = "row">
+		<table border="1" class="table col-8 offset-2 mt-3" >
+			<tbody>
+				<tr th:each="joke : ${listJokes}">
+					<td >
+						<p th:text="${joke.topic}"></p>
+						<p th:text="${joke.jokecontent}"></p>
+						<p>Scores: <session th:text="${joke.scores}"></session></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+
+</div>
+
+<footer class="container text-center text-white px-0 " style="background-color:#f5902c;">
+<div th:replace="footer :: footer"></div>

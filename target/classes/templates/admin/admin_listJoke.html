@@ -1,0 +1,26 @@
+<div th:replace="admin/admin_header :: header"></div>
+
+	<div class = "container py-3">
+	
+		<div class = "row">
+			<table border="1" cellpadding="10" class="table col-8 offset-2" >
+				<tbody>
+					<tr th:each="joke : ${listJokes}">
+						<td >
+							<p th:text="${joke.topic}">Joke Topic</p>
+							<p th:text="${joke.jokecontent}">Joke Content</p>
+							<p>Scores: <session th:text="${joke.scores}"></session></p>
+							<br><br>
+							<a th:href="@{'/admin/editJoke/' + ${joke.jokeid}}">Edit</a>
+								&nbsp;&nbsp;&nbsp; 
+							<a th:href="@{'/admin/deletejoke/' + ${joke.jokeid}}">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</div>
+
+<footer class="container text-center text-white px-0 " style="background-color:#f5902c;">
+
+<div th:replace="footer :: footer"></div>		

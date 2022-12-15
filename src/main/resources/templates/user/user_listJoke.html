@@ -1,0 +1,25 @@
+<div th:replace="user/user_header :: header"></div>
+
+	<div align="center">
+		<p>
+			Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+		</p>
+		
+		<table border="1" cellpadding="10">
+			<thead>
+			<tbody>
+				<tr th:each="joke : ${listJokes}">
+					<td>
+						<p th:text="${joke.topic}">Joke Topic</p>
+						<p th:text="${joke.jokecontent}">Joke Content</p> 
+						<p>Scores: <session th:text="${joke.scores}"></session></p>
+					<br> <a th:href="@{'/user/editjoke/' + ${joke.jokeid}}">Edit</a>
+						&nbsp;&nbsp;&nbsp; <a th:href="@{'/user/deletejoke/' + ${joke.jokeid}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+		<footer class="container text-center text-white px-0" style="background-color:#f5902c;">
+<div th:replace="footer :: footer"></div>

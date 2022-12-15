@@ -1,0 +1,49 @@
+<div th:replace="user/user_header :: header"></div>
+
+
+	<div align="center">
+		<h1>Add New Joke</h1>
+		<br />
+		<form action="#" th:action="@{/user/savejoke}" th:object="${joke}"
+			method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td></td>
+					<td>
+						<p>Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+						<p>Sorry, the joke you submitted is already in the database. Please try a new one!</p>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Topic:</td>
+					<td>
+						<select th:field="*{topic}" class="form-control">
+							<option th:value=null th:text=null></option>
+							<option th:value="'Animal'">Animal</option>
+							<option th:value="'Food'">Food</option>
+							<option th:value="'School'">School</option>
+							<option th:value="'Family'">Family</option>
+							<option th:value="'Political'">Political</option>
+							<option th:value="'Science'">Science</option>
+							<option th:value="'Cultual'">Cultual</option>
+							<option th:value="'Other'">Other</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Content:</td>
+					<td><textarea th:field="*{jokecontent}" rows="6" cols="60"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button type="submit" class="btn text-light mb-5"  style="background-color:#F88C00;">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button type="reset" class="btn text-light mb-5"  style="background-color:#F88C00;">Reset</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	<footer class="container text-center text-white px-0 fixed-bottom" style="background-color:#f5902c;">
+<div th:replace="footer :: footer"></div>

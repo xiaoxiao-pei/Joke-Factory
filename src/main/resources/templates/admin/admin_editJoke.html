@@ -1,0 +1,58 @@
+<div th:replace="admin/admin_header :: header"></div>
+
+<div class="container my-3 " style="color:#FF4E00;">
+
+	
+			<h2 class="col-6 offset-3 text-center my-3" >Edit Joke</h2>
+		
+			<form class="col-6 offset-3 " action="#" th:action="@{/admin/saveJoke}" th:object="${joke}" method="post" >
+				<table border="0" cellpadding="10" style="color:#FF4E00;">
+					
+					<tr>
+						<td>Topic:</td>
+						<td>
+							<select th:field="*{topic}" class="form-control">
+								<option th:value=null th:text=null></option>
+								<option th:value="'Animal'">Animal</option>
+								<option th:value="'Food'">Food</option>
+								<option th:value="'School'">School</option>
+								<option th:value="'Family'">Family</option>
+								<option th:value="'Political'">Political</option>
+								<option th:value="'Science'">Science</option>
+								<option th:value="'Cultual'">Cultual</option>
+								<option th:value="'Other'">Other</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Content:</td>
+						<td><textarea th:field="*{jokecontent}" rows="6" cols="60" ></textarea></td>
+					</tr>
+					<tr>
+						<td>Scores:</td>
+						<td><input type="text" th:field="*{scores}"/></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<button type="submit" class="btn text-light mr-5"  style="background-color:#F88C00;">Save</button>
+							<button type="reset" class="btn text-light "  style="background-color:#F88C00;">Retrieve</button>
+						</td>
+					</tr> 
+				</table>
+				<input class = "d-none" type="text" th:field="*{jokeid}" />
+				<input class = "d-none" type="text" th:field="*{fingerprint}"/>
+			</form>
+
+
+
+
+</div>
+
+<script>
+	document.getElementById("logoImg").src = "../../images/logo.png";
+</script>
+
+<footer class="container text-center text-white px-0 fixed-bottom" style="background-color:#f5902c;">
+<div th:replace="footer :: footer"></div>

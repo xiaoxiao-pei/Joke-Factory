@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Admin login</title>
+		<link rel="stylesheet" type="text/css"
+			href="/webjars/bootstrap/css/bootstrap.min.css" />
+		<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+		<script type="text/javascript"
+			src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://kit.fontawesome.com/2632de9ed9.js" th:crossorigin="anonymous"></script>
+		<base href="../"/>
+	</head>
+	
+	<body>
+
+		<div th:replace="header :: header"></div>
+		
+		<div class="container my-5">
+			<div class = "row text-center " >
+					
+				<form class="col-6 offset-3" th:action="@{/admin/login}" method="post" style="color:#FF4E00;">
+					<h2 class="col-6 offset-3  my-5">Admin Login</h2>
+					
+					<div th:if="${param.error}">
+						<h4 style="color: red">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
+					</div>
+					
+				  <div class="form-group row ">
+				    <label for="colFormLabel" class="col-sm-2 col-form-label col-form-label-lg fw-bold">ID:</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control form-control-lg" id="colFormLabel"  name="id_admin"/>
+				    </div>
+				  </div>
+				  
+				  <div class="form-group row">
+				    <label for="colFormLabel" class="col-sm-2 col-form-label col-form-label-lg fw-bold">Password:</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control form-control-lg" id="colFormLabel"  name="password"/>
+				    </div>
+				  </div>
+				  
+				  <div class = "my-3">
+				 	 <input type="submit" class="btn mb-5 text-light" style="background-color:#F88C00;" value="Login" />
+				  </div>
+				  
+				  
+				</form>
+			</div>
+
+		</div>
+		
+		<footer class="container text-center text-white px-0 fixed-bottom" style="background-color:#f5902c;">
+		<div th:replace="footer :: footer"></div>

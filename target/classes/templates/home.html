@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="ISO-8859-1">
+	<title>Joke Bar homepage</title>
+	<link rel="stylesheet" type="text/css"
+		href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/2632de9ed9.js" th:crossorigin="anonymous"></script>
+<!-- 	<script type="text/javascript" th:src="@{js/script.js}"></script> -->
+	</head>
+	<body>
+
+	<div th:replace="header :: header"></div>
+	
+	<div class = "container py-3">
+	
+		<div class = "row">
+			<table border="1" class="table col-8 offset-2" >
+				<tbody>
+					<tr th:each="joke : ${listJokes}">
+						<td >
+							<p th:text="${joke.topic}"></p>
+							<p th:text="${joke.jokecontent}"></p>
+							<p>Scores: <session th:text="${joke.scores}"></session></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</div>
+		
+	</div>
+		
+<footer class="container text-center text-white px-0 " style="background-color:#f5902c;">
+		<!-- Grid container -->
+		<div class="container pt-1 ">
+			<!-- Section: Social media -->
+			<section class="mb-1">
+				<!-- Facebook -->
+				<a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!"
+					role="button" data-mdb-ripple-color="dark"><i
+					class="fab fa-facebook-f"></i></a>
+	
+				<!-- Twitter -->
+				<a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!"
+					role="button" data-mdb-ripple-color="dark"><i
+					class="fab fa-twitter"></i></a>
+	
+				<!-- Google -->
+				<a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!"
+					role="button" data-mdb-ripple-color="dark"><i
+					class="fab fa-google"></i></a>
+	
+				<!-- Instagram -->
+				<a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!"
+					role="button" data-mdb-ripple-color="dark"><i
+					class="fab fa-instagram"></i></a>
+	
+				<!-- Linkedin -->
+				<a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!"
+					role="button" data-mdb-ripple-color="dark"><i
+					class="fab fa-linkedin"></i></a>
+				<!-- Github -->
+				<a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!"
+					role="button" data-mdb-ripple-color="dark"><i
+					class="fab fa-github"></i></a>
+			</section>
+			<!-- Section: Social media -->
+		</div>
+		<!-- Grid container -->
+	
+		<!-- Copyright -->
+		<div class="text-center text-light py-3 bg-dark">
+			© 2022 Copyright: <a class="text-light" href="/">JokeBar.com</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	</body>
+	</html>
